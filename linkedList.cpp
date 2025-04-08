@@ -3,25 +3,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Node structure
 typedef struct node {
     int info;
     struct node *next;
 } node;
 
-// List structure45
 typedef struct {
     node *first;
 } list;
 
-// Create a new list
 list *makelist(void) {
     list *l = (list *)malloc(sizeof(list));
     l->first = NULL;
     return l;
 }
 
-// Create list (append at end)
 void createlist(list *l, int v) {
     node *n = (node *)malloc(sizeof(node));
     n->info = v;
@@ -38,7 +34,6 @@ void createlist(list *l, int v) {
     }
 }
 
-// Insert at beginning
 void firstnode(list *l, int v) {
     node *n = (node *)malloc(sizeof(node));
     n->info = v;
@@ -46,7 +41,6 @@ void firstnode(list *l, int v) {
     l->first = n;
 }
 
-// Insert after a given value
 void maddnode(list *l, int p, int v) {
     node *t = l->first;
     while (t != NULL && t->info != p) {
@@ -60,7 +54,6 @@ void maddnode(list *l, int p, int v) {
     t->next = n;
 }
 
-// Insert at the end
 void laddnode(list *l, int v) {
     node *n = (node *)malloc(sizeof(node));
     n->info = v;
@@ -77,7 +70,6 @@ void laddnode(list *l, int v) {
     }
 }
 
-// Print the list
 void printlist(list *l) {
     node *t = l->first;
     while (t != NULL) {
@@ -86,8 +78,6 @@ void printlist(list *l) {
     }
     printf("NULL\n");
 }
-
-// Delete a node with specific value
 void dellist(list *l, int v) {
     node *t = l->first;
     node *s = NULL;
@@ -110,7 +100,6 @@ void dellist(list *l, int v) {
         free(t);
     }
 }
-
 int main() {
     list *ls = makelist();
     int a, i, v, p;
@@ -144,6 +133,5 @@ int main() {
     scanf("%d", &v);
     dellist(ls, v);
     printlist(ls);
-
     return 0;
 }
