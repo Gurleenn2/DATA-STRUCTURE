@@ -1,12 +1,11 @@
 #include <stdio.h>
 #define MAX 10
 
-int adjMatrix[MAX][MAX];   // Adjacency matrix
-int visited[MAX];           // Visited array
-int queue[MAX];             // Queue for BFS
-int front = -1, rear = -1;   // Queue pointers
+int adjMatrix[MAX][MAX];   
+int visited[MAX];           
+int queue[MAX];             
+int front = -1, rear = -1;   
 
-// Function to add an element to the queue
 void enqueue(int vertex) {
     if (rear == MAX - 1)
         printf("Queue Overflow\n");
@@ -16,7 +15,7 @@ void enqueue(int vertex) {
     }
 }
 
-// Function to remove an element from the queue
+
 int dequeue() {
     if (front == -1 || front > rear) {
         printf("Queue Underflow\n");
@@ -25,7 +24,7 @@ int dequeue() {
     return queue[front++];
 }
 
-// Function to perform BFS
+
 void bfs(int startVertex, int n) {
     int i;
 
@@ -51,7 +50,7 @@ int main() {
     printf("Enter the number of vertices: ");
     scanf("%d", &n);
 
-    // Initialize visited array and adjacency matrix
+   
     for (i = 0; i < n; i++) {
         visited[i] = 0;
         for (j = 0; j < n; j++) {
