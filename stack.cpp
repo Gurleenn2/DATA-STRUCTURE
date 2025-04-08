@@ -20,7 +20,6 @@ Node* createNode(int data) {
     newNode->next = NULL;
     return newNode;
 }
-
 Stack* createStack() {
     Stack* newStack = (Stack*)malloc(sizeof(Stack));
     if (!newStack) {
@@ -30,11 +29,9 @@ Stack* createStack() {
     newStack->top = NULL;
     return newStack;
 }
-
 int isEmpty(Stack* stack) {
     return stack->top == NULL;
 }
-
 void push(Stack* stack, int data) {
     Node* newNode = createNode(data);
     if (isEmpty(stack)) {
@@ -43,9 +40,8 @@ void push(Stack* stack, int data) {
         newNode->next = stack->top;
         stack->top = newNode;
     }
-    printf("Pushed element: %d\n", data);  // <-- Output for push
+    printf("Pushed element: %d\n", data); 
 }
-
 int pop(Stack* stack) {
     if (isEmpty(stack)) {
         printf("Stack is empty\n");
@@ -55,7 +51,7 @@ int pop(Stack* stack) {
     Node* temp = stack->top;
     stack->top = stack->top->next;
     free(temp);
-    printf("Popped element: %d\n", data);  // <-- Output for pop
+    printf("Popped element: %d\n", data);  
     return data;
 }
 
@@ -68,10 +64,8 @@ void printStack(Stack* stack) {
     }
     printf("\n");
 }
-
 int main() {
     Stack* stack = createStack();
-
     push(stack, 5);
     push(stack, 10);
     push(stack, 15);
@@ -82,6 +76,5 @@ int main() {
     pop(stack);
 
     printStack(stack);
-
     return 0;
 }
